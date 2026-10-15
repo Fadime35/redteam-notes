@@ -141,19 +141,7 @@ gibi işlemler gerçekleştirilir.
 
 Örneğin iki bilgisayar farklı ağlardaysa veri doğrudan gönderilmeyebilir. Paketler router'lar üzerinden geçirilir.
 
-```text
-PC
- ↓
-Router
- ↓
-Router
- ↓
-Server
-```
-
 Router, hedef IP adresine bakarak paketin nereye gönderileceğine karar verir.
-
-**Pentest açısından:** IP adresleri, subnetler, routing ve network segmentation gibi konular bu katmanın anlaşılmasına dayanır.
 
 ---
 
