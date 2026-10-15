@@ -45,7 +45,7 @@ Bu süreçte her katmanın farklı bir sorumluluğu vardır:
 - **Transport:** Veri iki uç arasında nasıl taşınacak?
 - **Internet / Network:** Paket hangi IP hedefine gönderilecek?
 - **Network Access / Data Link:** Veri mevcut yerel ağ üzerinden nasıl iletilecek?
-- **Physical:** Bitler fiziksel ortamdan nasıl taşınacak?
+- **Network Access / Physical:** Bitler fiziksel ortamdan nasıl taşınacak?
 
 Buradaki önemli nokta, her katmanın tüm iletişimi tek başına yönetmemesidir. Her biri kendi görevini yerine getirir ve veriyi sonraki aşamaya aktarır.
 
