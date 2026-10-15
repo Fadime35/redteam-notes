@@ -18,7 +18,7 @@ Yerel ağ iletişimi
 Fiziksel iletim
 ```
 
-Bu yapıyı açıklamak için en çok **OSI** ve **TCP/IP** modelleri kullanılır.
+Bu yapıyı açıklamak için **OSI** ve **TCP/IP** modelleri kullanılır.
 
 ---
 
