@@ -103,16 +103,3 @@ Pentest çalışmalarında bu bilgi şu alanlarda kullanılır:
 
 **Örnek:** Bir kurumun çalışan ağı ile misafir Wi-Fi ağının birbirinden ayrılması, misafir cihazlarının kurum içindeki hassas sistemlere doğrudan erişmesini engellemeye yardımcı olur.
 
-## 6. Temel Kavramların Birbiriyle İlişkisi
-
-Bir bilgisayarın ağ üzerinden başka bir cihaza veri gönderebilmesi için ağ bağlantısı, adresleme ve iletişim kuralları gerekir.
-
-Bu süreci öğrenirken şu sırayı takip etmek faydalıdır:
-
-1. Ağın ne olduğunu ve ağ türlerini anlamak.
-2. Cihazların iletişim kurduğu OSI ve TCP/IP modellerini öğrenmek.
-3. Verinin ağ üzerinden nasıl taşındığını, yani kapsüllemeyi öğrenmek.
-4. MAC ve IP adreslerinin görevlerini anlamak.
-5. TCP, UDP ve portların iletişimdeki rolünü öğrenmek.
-
-Bu kavramlar birlikte, ağ iletişiminin nasıl gerçekleştiğini anlamanın temelini oluşturur.
