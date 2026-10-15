@@ -29,7 +29,7 @@ Verilerin uygulamalar tarafından anlaşılabilecek biçime dönüştürülmesiy
 
 **Örnek:** Verinin farklı sistemler tarafından aynı biçimde yorumlanabilmesi.
 
-**Not:** Gerçek ağ uygulamalarında şifreleme ve veri biçimlendirme görevleri her zaman ayrı bir altıncı katmanda bulunmaz.
+**Not:** OSI modelinde şifreleme ve veri biçimlendirme görevleri Presentation Layer ile ilişkilendirilir. Ancak gerçek ağ uygulamalarında bu işlemler farklı protokoller ve uygulamalar tarafından gerçekleştirilebilir; her zaman ayrı bir 6. katman bulunmaz.
 
 ### 5. Session — Oturum Katmanı
 
