@@ -276,7 +276,7 @@ Network           ───────→  Internet
 
 Data Link         ┐
 Physical          ┴──────→  Network Access
-```
+```               ┘
 
 TCP/IP modelinde OSI'nin Presentation ve Session katmanları ayrı katmanlar olarak bulunmaz. Bu işlevler çoğunlukla Application katmanı içinde ele alınır.
 
