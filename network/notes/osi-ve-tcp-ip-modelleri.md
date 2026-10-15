@@ -78,7 +78,6 @@ Bitlerin fiziksel ortam üzerinden nasıl taşındığıyla ilgilenir.
 | 2 | Data Link | Yerel bağlantıda çerçeve iletimi |
 | 1 | Physical | Bitlerin fiziksel ortamda iletimi |
 
-**Hatırlama yöntemi:** Üstten alta doğru Application, Presentation, Session, Transport, Network, Data Link, Physical.
 
 ## 4. TCP/IP Modeli
 
