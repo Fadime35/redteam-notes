@@ -2,7 +2,7 @@
 
 ## 1. Ağ Nedir?
 
-Bilgisayar ağı (Computer Network), cihazların veri alışverişi yapmak ve kaynakları paylaşmak amacıyla birbirine bağlandığı sistemdir.
+Bilgisayar ağı, cihazların birbirine bağlanarak veri paylaşmasını ve iletişim kurmasını sağlayan sistemdir.
 
 Örneğin bir evde bilgisayar, telefon ve yazıcı aynı ağa bağlanabilir. Böylece cihazlar iletişim kurabilir ve ortak kaynakları kullanabilir.
 
@@ -57,7 +57,7 @@ Bir şehir veya metropol içerisindeki farklı ağları birbirine bağlar.
 
 ### WAN — Wide Area Network
 
-Geniş coğrafi alanlarda bulunan ağları birbirine bağlar. Şehirler, ülkeler veya kıtalar arasında iletişim sağlayabilir.
+Geniş coğrafi alanlarda bulunan ağları birbirine bağlar. Şehirler, ülkeler veya kıtalar arasındaki iletişimi sağlar.
 
 **Örnek:** Bir şirketin Ankara ve İstanbul ofislerini birbirine bağlayan ağ.
 
@@ -103,16 +103,3 @@ Pentest çalışmalarında bu bilgi şu alanlarda kullanılır:
 
 **Örnek:** Bir kurumun çalışan ağı ile misafir Wi-Fi ağının birbirinden ayrılması, misafir cihazlarının kurum içindeki hassas sistemlere doğrudan erişmesini engellemeye yardımcı olur.
 
-## 6. Temel Kavramların Birbiriyle İlişkisi
-
-Bir bilgisayarın ağ üzerinden başka bir cihaza veri gönderebilmesi için ağ bağlantısı, adresleme ve iletişim kuralları gerekir.
-
-Bu süreci öğrenirken şu sırayı takip etmek faydalıdır:
-
-1. Ağın ne olduğunu ve ağ türlerini anlamak.
-2. Cihazların iletişim kurduğu OSI ve TCP/IP modellerini öğrenmek.
-3. Verinin ağ üzerinden nasıl taşındığını, yani kapsüllemeyi öğrenmek.
-4. MAC ve IP adreslerinin görevlerini anlamak.
-5. TCP, UDP ve portların iletişimdeki rolünü öğrenmek.
-
-Bu kavramlar birlikte, ağ iletişiminin nasıl gerçekleştiğini anlamanın temelini oluşturur.
