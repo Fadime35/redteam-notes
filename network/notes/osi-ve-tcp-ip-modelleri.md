@@ -319,7 +319,3 @@ Physical
 → Fiziksel olarak nasıl taşınacak?
 ```
 
-Asıl önemli olan katman isimlerini ezberlemek değil, **bu görevlerin birbirinden nasıl ayrıldığını anlamaktır.**
-
-Bu mantık daha sonra TCP/UDP, IP adresleme, routing, switching, packet analysis ve network reconnaissance konularını anlamayı kolaylaştırır.
-
