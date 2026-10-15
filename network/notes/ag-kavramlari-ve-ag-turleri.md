@@ -57,7 +57,7 @@ Bir şehir veya metropol içerisindeki farklı ağları birbirine bağlar.
 
 ### WAN — Wide Area Network
 
-Geniş coğrafi alanlarda bulunan ağları birbirine bağlar. Şehirler, ülkeler veya kıtalar arasındaki iletişimi sağlayabilir.
+Geniş coğrafi alanlarda bulunan ağları birbirine bağlar. Şehirler, ülkeler veya kıtalar arasındaki iletişimi sağlar.
 
 **Örnek:** Bir şirketin Ankara ve İstanbul ofislerini birbirine bağlayan ağ.
 
