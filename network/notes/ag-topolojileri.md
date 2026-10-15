@@ -45,7 +45,7 @@ Bir bilgisayar başka bir cihaza veri gönderdiğinde trafik genellikle merkezi 
 **Avantajları:**
 - Yeni cihaz eklemek kolaydır.
 - Bir bağlantı kablosunun arızalanması genellikle diğer cihazları etkilemez.
-- Sorunları tespit etmek görece kolaydır.
+- Sorunları tespit etmek kolaydır.
 
 **Dezavantajları:**
 - Merkezi switch arızalanırsa ona bağlı cihazlar iletişim kuramayabilir.
