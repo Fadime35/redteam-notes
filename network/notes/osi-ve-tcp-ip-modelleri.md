@@ -187,4 +187,4 @@ Bu üç konu aslında aynı sürecin farklı yönlerini açıklar:
 - **Segment, Packet ve Frame**, verinin farklı katmanlardaki yapılarını adlandırır.
 - **Decapsulation**, alıcı tarafında bu yapıların nasıl işlendiğini açıklar.
 
-Bu mantığı anlamak, daha sonra TCP/UDP, IP adresleme, routing ve Wireshark ile paket analizi konularını öğrenmeyi kolaylaştırır.
+
