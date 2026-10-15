@@ -20,8 +20,6 @@ OSI modeli, ağ iletişimini yedi katmana ayırır. Her katman, iletişimin fark
 | Data Link | Yerel ağdaki iletişimi, MAC adreslerini ve frame yapılarını ele alır. |
 | Physical | Bitlerin kablo, fiber veya radyo sinyalleri üzerinden iletilmesini açıklar. |
 
-Presentation ve Session katmanları, iletişimin belirli işlevlerini anlamamızı sağlayan kavramsal katmanlardır. Gerçek sistemlerde bu işlevler ayrı katmanlar hâlinde bulunmak zorunda değildir.
-
 ### TCP/IP Modeli
 
 TCP/IP modeli, internet iletişimini daha pratik şekilde açıklayan dört katmanlı bir modeldir.
