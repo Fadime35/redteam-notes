@@ -31,10 +31,6 @@ TCP/IP modeli, internet iletişimini daha pratik şekilde açıklayan dört katm
 | Internet | IP adresleme ve paketlerin ağlar arasında yönlendirilmesiyle ilgilenir. |
 | Network Access | Yerel ağ iletişimini ve fiziksel iletimi kapsar. |
 
-OSI ve TCP/IP modellerinin temel amacı aynıdır: Ağ iletişiminin farklı görevlerini birbirinden ayırmak.
-
-OSI bu görevleri yedi katmanda açıklar. TCP/IP ise bazı görevleri birleştirerek dört katman kullanır.
-
 ## 2. Katmanlar Birlikte Nasıl Çalışır?
 
 Bir web sitesine bağlandığımızı düşünelim.
