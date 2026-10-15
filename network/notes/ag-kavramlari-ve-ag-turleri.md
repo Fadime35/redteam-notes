@@ -2,7 +2,7 @@
 
 ## 1. Ağ Nedir?
 
-Bilgisayar ağı (Computer Network), cihazların birbirine bağlanarak veri paylaşmasını ve iletişim kurmasını sağlayan sistemdir.
+Bilgisayar ağı, cihazların birbirine bağlanarak veri paylaşmasını ve iletişim kurmasını sağlayan sistemdir.
 
 Örneğin bir evde bilgisayar, telefon ve yazıcı aynı ağa bağlanabilir. Böylece cihazlar iletişim kurabilir ve ortak kaynakları kullanabilir.
 
