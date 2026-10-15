@@ -1,218 +1,111 @@
-# OSI ve TCP/IP Modelleri
+# OSI ve TCP/IP Modelleri, Kapsülleme ve Veri Birimleri
 
-Ağ iletişimi tek bir işlemden oluşmaz. Bir cihazdan başka bir cihaza veri gönderilirken uygulamadan fiziksel iletişime kadar birçok farklı işlem gerçekleşir.
+Bir bilgisayar başka bir bilgisayara veri gönderdiğinde, bu verinin yalnızca gönderilmesi yeterli değildir. Verinin nasıl taşınacağı, hangi hedefe ulaşacağı ve yerel ağ üzerinden nasıl iletileceği de belirlenmelidir.
 
-Bu işlemleri daha anlaşılır hâle getirmek için ağ iletişimi **katmanlara** ayrılır.
+Ağ iletişiminde bu görevler farklı katmanlar tarafından gerçekleştirilir. **OSI ve TCP/IP modelleri**, bu görevleri anlamamızı sağlayan katmanlı modellerdir.
 
-En temel mantık:
+## 1. OSI ve TCP/IP Modelleri
 
-```text
-Uygulama
-   ↓
-Verinin taşınması
-   ↓
-Adresleme ve yönlendirme
-   ↓
-Yerel ağ iletişimi
-   ↓
-Fiziksel iletim
-```
+### OSI Modeli
 
-Bu yapıyı açıklamak için **OSI** ve **TCP/IP** modelleri kullanılır.
+OSI modeli, ağ iletişimini yedi katmana ayırır. Her katman, iletişimin farklı bir yönünü açıklar.
 
----
+| Katman | Temel görevi |
+|---|---|
+| Application | Uygulamaların ağ hizmetlerini kullanmasını sağlar. HTTP ve DNS bu katmanla ilişkilidir. |
+| Presentation | Verinin biçimlendirilmesi, kodlanması ve şifrelenmesi gibi işlevleri açıklar. |
+| Session | İletişim oturumlarının yönetilmesini açıklar. |
+| Transport | Verinin iki uç arasında taşınmasını yönetir. TCP ve UDP burada bulunur. |
+| Network | IP adresleme ve farklı ağlar arasında yönlendirmeyle ilgilenir. |
+| Data Link | Yerel ağdaki iletişimi, MAC adreslerini ve frame yapılarını ele alır. |
+| Physical | Bitlerin kablo, fiber veya radyo sinyalleri üzerinden iletilmesini açıklar. |
 
-# OSI Modeli
+Presentation ve Session katmanları, iletişimin belirli işlevlerini anlamamızı sağlayan kavramsal katmanlardır. Gerçek sistemlerde bu işlevler ayrı katmanlar hâlinde bulunmak zorunda değildir.
 
-OSI modeli ağ iletişimini **7 katmana** ayırır:
+### TCP/IP Modeli
 
-```text
-7 - Application
-6 - Presentation
-5 - Session
-4 - Transport
-3 - Network
-2 - Data Link
-1 - Physical
-```
+TCP/IP modeli, internet iletişimini daha pratik şekilde açıklayan dört katmanlı bir modeldir.
 
-Katmanları ezberlemekten çok her katmanın temel görevini anlamak önemlidir.
+| Katman | Temel görevi |
+|---|---|
+| Application | HTTP, DNS ve SSH gibi uygulama protokollerini kapsar. |
+| Transport | TCP ve UDP üzerinden veri aktarımını yönetir. |
+| Internet | IP adresleme ve paketlerin ağlar arasında yönlendirilmesiyle ilgilenir. |
+| Network Access | Yerel ağ iletişimini ve fiziksel iletimi kapsar. |
 
----
+OSI ve TCP/IP modellerinin temel amacı aynıdır: Ağ iletişiminin farklı görevlerini birbirinden ayırmak.
 
-## 7. Application Layer
+OSI bu görevleri yedi katmanda açıklar. TCP/IP ise bazı görevleri birleştirerek dört katman kullanır.
 
-Kullanıcıya ağ hizmetlerini sunan uygulama protokollerinin bulunduğu katmandır.
+## 2. Katmanlar Birlikte Nasıl Çalışır?
 
-Örneğin:
+Bir web sitesine bağlandığımızı düşünelim.
 
-- HTTP / HTTPS
-- DNS
-- SSH
-- FTP
-- SMTP
+Önce tarayıcı, sunucuya göndermek istediği isteği oluşturur. Bu veri taşınmak üzere Transport katmanına iletilir. Ardından IP katmanı, verinin kaynak ve hedef IP adresleriyle ilişkilendirilmesini sağlar. Data Link katmanı ise verinin mevcut yerel ağ üzerinden iletilmesine yardımcı olur.
 
-Bir web sitesine girdiğimizde tarayıcının kullandığı HTTP/HTTPS iletişimi bu katmanla ilişkilidir.
+Son olarak veri fiziksel ortamdan gönderilir.
 
-**Pentest açısından:** Web uygulamaları, API'ler, DNS ve diğer ağ servisleri bu seviyede karşımıza çıkar.
+Bu süreçte her katmanın farklı bir sorumluluğu vardır:
 
----
+- **Application:** Hangi uygulama protokolüyle iletişim kuruluyor?
+- **Transport:** Veri iki uç arasında nasıl taşınacak?
+- **Internet / Network:** Paket hangi IP hedefine gönderilecek?
+- **Network Access / Data Link:** Veri mevcut yerel ağ üzerinden nasıl iletilecek?
+- **Physical:** Bitler fiziksel ortamdan nasıl taşınacak?
 
-## 6. Presentation Layer
+Buradaki önemli nokta, her katmanın tüm iletişimi tek başına yönetmemesidir. Her biri kendi görevini yerine getirir ve veriyi sonraki aşamaya aktarır.
 
-Verinin karşı tarafın anlayabileceği biçime dönüştürülmesiyle ilgilidir.
+## 3. Kapsülleme Nedir?
 
-Örneğin:
+Bir uygulamanın oluşturduğu veri, ağ üzerinden gönderilmeden önce farklı katmanlardan geçer. Her katman, kendi görevini yerine getirebilmek için veriye gerekli kontrol bilgilerini ekler.
 
-- Veri formatlama
-- Encoding / Decoding
-- Compression
-- Encryption / Decryption
+Bu işleme **Encapsulation**, yani kapsülleme denir.
 
-Ancak gerçek sistemlerde bu işlemler her zaman ayrı bir katmanda gerçekleşmez. OSI'deki Presentation Layer daha çok bu görevleri açıklamak için kullanılan kavramsal bir katmandır.
+Örneğin TCP kullanılarak bir HTTP isteği gönderildiğini düşünelim.
 
----
+Önce uygulama verisi vardır. TCP bu veriye taşıma bilgilerini ekler. IP katmanı, kaynak ve hedef IP adreslerini içeren bilgileri ekler. Ethernet gibi yerel ağ teknolojisi de frame oluşturmak için gerekli bilgileri ekler.
 
-## 5. Session Layer
-
-İki sistem arasındaki iletişim oturumlarının yönetilmesiyle ilgilidir.
-
-Basitçe:
+Böylece veri gönderilmeye hazır hâle gelir.
 
 ```text
-Oturumu başlat
+Uygulama verisi
       ↓
-İletişimi sürdür
+TCP bilgileri eklenir
       ↓
-Oturumu sonlandır
+IP bilgileri eklenir
+      ↓
+Ethernet bilgileri eklenir
+      ↓
+Ağ üzerinden gönderilir
 ```
 
-Modern TCP/IP ağlarında bu işlevler genellikle uygulamalar ve diğer protokoller tarafından gerçekleştirilir.
+Bu bilgilerin eklenme amacı, her katmanın kendi işini yapabilmesidir. Örneğin IP bilgileri paketin ağlar arasında doğru hedefe yönlendirilmesine yardımcı olurken, Ethernet bilgileri frame'in mevcut yerel ağda iletilmesine yardımcı olur.
 
----
+Kapsülleme sırasında verinin etrafına yalnızca rastgele bilgiler eklenmez. Her katmanın eklediği bilgiler, o katmanın iletişim görevleri için kullanılır.
 
-## 4. Transport Layer
+## 4. Segment, Packet ve Frame Nedir?
 
-Verinin **iki uç sistem arasında taşınmasını** sağlar.
+Veri farklı katmanlardan geçerken farklı isimlerle anılır. Bu isimler, verinin hangi katmanda ele alındığını anlamamızı sağlar.
 
-En önemli protokoller:
+### Data
 
-- **TCP**
-- **UDP**
+Uygulamanın göndermek istediği asıl içeriktir. Örneğin bir HTTP isteği veya mesaj içeriği olabilir.
 
-TCP güvenilir ve bağlantı odaklı iletişim sağlar.
+### Segment
 
-UDP ise bağlantı kurmadan veri gönderir ve TCP gibi teslim garantisi sağlamaz.
+Veri TCP katmanında işlendiğinde TCP segmenti olarak adlandırılır. TCP header içerisinde port numaraları, sıra numaraları ve diğer taşıma bilgileri bulunabilir.
 
-Bu katmanda **port numaraları** da kullanılır.
+UDP kullanıldığında ise **UDP datagramı** terimi kullanılır.
 
-Örneğin:
+### Packet
 
-```text
-192.168.1.10:443
-```
+IP katmanı, IP header bilgilerini ekleyerek verinin IP paketleri üzerinden taşınmasını sağlar. Kaynak ve hedef IP adresleri bu katmandaki önemli bilgilerdendir.
 
-Burada:
+### Frame
 
-```text
-192.168.1.10 → IP adresi
-443           → Port
-```
+Data Link katmanı, IP paketini yerel ağda iletilebilecek bir frame içinde taşır. Ethernet frame'i kaynak ve hedef MAC adresleri gibi bilgiler içerebilir.
 
-IP adresi cihazı, port ise cihaz üzerindeki ilgili iletişim noktasını belirtir.
-
-**Pentest açısından:** Port scanning ve açık servislerin tespit edilmesi bu katmanla yakından ilişkilidir.
-
----
-
-## 3. Network Layer
-
-Verinin **hangi ağdan geçerek hedefe ulaşacağını** belirlemekle ilgilidir.
-
-Temel protokol **IP**'dir.
-
-Bu katmanda:
-
-- IP adresleme
-- Routing
-- Packet forwarding
-
-gibi işlemler gerçekleştirilir.
-
-Örneğin iki bilgisayar farklı ağlardaysa veri doğrudan gönderilmeyebilir. Paketler router'lar üzerinden geçirilir.
-
-Router, hedef IP adresine bakarak paketin nereye gönderileceğine karar verir.
-
----
-
-## 2. Data Link Layer
-
-Aynı yerel ağ içerisindeki cihazların iletişimiyle ilgilenir.
-
-Bu katmanda:
-
-- MAC address
-- Ethernet
-- Wi-Fi
-- Frame
-- Switch
-
-gibi kavramlar bulunur.
-
-Switch, yerel ağdaki cihazlar arasında veri aktarırken **MAC adreslerini** kullanır.
-
-Basit olarak:
-
-```text
-IP  → Hangi cihaz / ağ?
-MAC → Yerel ağdaki hangi arayüz?
-```
-
-şeklinde düşünebiliriz.
-
----
-
-## 1. Physical Layer
-
-Verinin fiziksel ortam üzerinden iletilmesini ifade eder.
-
-Örneğin:
-
-- Ethernet kablosu
-- Fiber
-- Wi-Fi radyo sinyalleri
-
-üzerinden verinin **bitler** şeklinde taşınması bu katmanla ilişkilidir.
-
----
-
-# Verinin Katmanlardan Geçmesi
-
-Örneğin tarayıcıdan bir web sitesine istek gönderdiğimizi düşünelim.
-
-Önce uygulama verisi oluşturulur:
-
-```text
-HTTP Request
-```
-
-Daha sonra veri katmanlar boyunca aşağı doğru ilerler.
-
-```text
-Application
-     ↓
-Transport
-     ↓
-Network
-     ↓
-Data Link
-     ↓
-Physical
-```
-
-Her katman kendi bilgilerini veriye ekleyerek onu bir sonraki katmana gönderir.
-
-Basitleştirirsek:
+Bu nedenle TCP üzerinden gönderilen bir verinin yolculuğu basitçe şöyle gösterilebilir:
 
 ```text
 Data
@@ -222,17 +115,36 @@ TCP Segment
 IP Packet
   ↓
 Ethernet Frame
-  ↓
-Bits
 ```
 
-Bu işleme **Encapsulation** denir.
+**Segment, Packet ve Frame birbirinden bağımsız üç ayrı mesaj değildir.** Aynı iletişimin farklı katmanlarda ele alınan yapılarıdır. Her katman kendi başlığıyla birlikte bu veriyi işler.
 
-Hedef bilgisayarda ise süreç tersine gerçekleşir:
+Bu gösterim TCP ve Ethernet örneğidir. UDP kullanıldığında Segment yerine Datagram terimi kullanılır; farklı yerel ağ teknolojilerinde frame yapısı da değişebilir.
+
+## 5. Kapsül Açma Nedir?
+
+Veri hedef bilgisayara ulaştığında göndericinin yaptığı işlemlerin tersi gerçekleşir.
+
+Alıcı, gelen frame'i işler. İçindeki IP paketini değerlendirir ve paketin ilgili üst katmana aktarılmasını sağlar. TCP kullanılıyorsa TCP katmanı da kendi bilgilerini değerlendirerek veriyi uygun uygulamaya iletir.
+
+Bu işleme **Decapsulation**, yani kapsül açma denir.
 
 ```text
-Bits
+Gönderici
+
+Data
   ↓
+Segment
+  ↓
+Packet
+  ↓
+Frame
+  ↓
+Ağ üzerinden iletim
+
+
+Alıcı
+
 Frame
   ↓
 Packet
@@ -242,80 +154,43 @@ Segment
 Data
 ```
 
-Buna **Decapsulation** denir.
+Bu şema, sürecin temel mantığını gösterir. Gerçek iletişimde her katman kendi bilgilerini işler; örneğin Ethernet frame'i alıcıdaki her durumda hedef uygulamaya kadar taşınmaz.
 
-Bu yüzden OSI modelini anlamanın en önemli noktalarından biri, **verinin gönderici tarafta katmanlar boyunca aşağı indiğini, alıcı tarafta ise yukarı çıktığını** anlamaktır.
+Kısacası gönderici veriyi taşınmaya hazırlar, alıcı ise katmanların eklediği bilgileri işleyerek veriyi doğru uygulamaya ulaştırır.
 
----
+## 6. Hepsini Bir Örnekle Birleştirelim
 
-# TCP/IP Modeli
+Tarayıcıdan bir web sunucusuna istek gönderdiğimizi düşünelim.
 
-TCP/IP modeli, gerçek ağ iletişimini açıklamak için daha pratik bir modeldir.
+**1. Uygulama veriyi oluşturur.**
 
-Genellikle 4 katmandan oluşur:
+Tarayıcı, HTTP isteğini hazırlar.
 
-```text
-Application
-Transport
-Internet
-Network Access
-```
+**2. TCP taşıma bilgilerini ekler.**
 
-OSI ile ilişkisi:
+TCP, kaynak ve hedef portları gibi bilgileri kullanır. TCP bağlantısı kullanılıyorsa verinin güvenilir biçimde aktarılmasına yönelik mekanizmalar da devrededir.
 
-```text
-OSI                         TCP/IP
+**3. IP katmanı hedefi belirler.**
 
-Application       ┐
-Presentation      ├──────→  Application
-Session           ┘
+Kaynak ve hedef IP adreslerini içeren bir IP paketi oluşturulur. Router'lar, hedef IP adresine ve yönlendirme tablolarına göre paketin hangi yöne gönderileceğine karar verir.
 
-Transport         ───────→  Transport
+**4. Data Link katmanı frame oluşturur.**
 
-Network           ───────→  Internet
+Paket, mevcut bağlantıda kullanılacak yerel ağ bilgileriyle bir frame içinde taşınır. Ethernet kullanılan bir ağda bu bilgiler MAC adreslerini içerir.
 
-Data Link         ┐
-Physical          ┴──────→  Network Access
-                  ┘
+**5. Veri fiziksel ortamdan gönderilir.**
 
-``` 
+Frame, fiziksel katmanda bitlerin iletimiyle temsil edilen sinyaller üzerinden taşınır.
 
-TCP/IP modelinde OSI'nin Presentation ve Session katmanları ayrı katmanlar olarak bulunmaz. Bu işlevler çoğunlukla Application katmanı içinde ele alınır.
+Sunucuya ulaştığında katmanlar kendi bilgilerini işler ve uygulama verisi ilgili yazılıma teslim edilir.
 
----
+## 7. Bu Konuların Birbirleriyle İlişkisi
 
-# OSI ve TCP/IP'yi Nasıl Düşünmeliyiz?
+Bu üç konu aslında aynı sürecin farklı yönlerini açıklar:
 
-Bir web sitesine bağlandığımızı düşünelim:
+- **OSI ve TCP/IP modelleri**, iletişimin hangi görevlerden oluştuğunu gösterir.
+- **Encapsulation**, verinin gönderilirken her katmanda nasıl hazırlandığını açıklar.
+- **Segment, Packet ve Frame**, verinin farklı katmanlardaki yapılarını adlandırır.
+- **Decapsulation**, alıcı tarafında bu yapıların nasıl işlendiğini açıklar.
 
-```text
-HTTP
- ↓
-TCP
- ↓
-IP
- ↓
-Ethernet / Wi-Fi
- ↓
-Fiziksel ortam
-```
-
-Burada her teknoloji farklı bir soruya cevap verir:
-
-```text
-HTTP
-→ Hangi uygulama iletişimi?
-
-TCP
-→ Veri nasıl taşınacak?
-
-IP
-→ Veri hangi cihaza / ağa gidecek?
-
-Ethernet / Wi-Fi
-→ Yerel ağda nasıl iletilecek?
-
-Physical
-→ Fiziksel olarak nasıl taşınacak?
-```
-
+Bu mantığı anlamak, daha sonra TCP/UDP, IP adresleme, routing ve Wireshark ile paket analizi konularını öğrenmeyi kolaylaştırır.
