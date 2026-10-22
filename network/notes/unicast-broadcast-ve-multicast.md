@@ -48,12 +48,6 @@ gibi iletişimlerde belirli bir hedefle iletişim kurarız.
 
 Unicast'i bir kişiye doğrudan mesaj göndermek gibi düşünebiliriz.
 
-```text
-Sen → Ahmet
-```
-
-Mesajı yalnızca Ahmet'e gönderirsin.
-
 ---
 
 ## Broadcast
@@ -94,14 +88,6 @@ Ağdaki cihazlara gönderilir
 192.168.1.20 adresine sahip cihaz cevap verir
 ```
 
-### Mantığı
-
-Broadcast'i sınıfta herkese soru sormak gibi düşünebiliriz:
-
-> "Kalemi kim aldı?"
-
-Soruyu sınıftaki herkes duyar ancak yalnızca ilgili kişi cevap verir.
-
 ---
 
 ## Multicast
@@ -130,35 +116,25 @@ Mesaj grupta olmayan cihazlara gönderilmez.
 
 Multicast'i belirli kişilerin bulunduğu bir mesaj grubuna mesaj göndermek gibi düşünebiliriz.
 
-```text
-Gönderici
-   ↓
-[Grup üyeleri]
-   ↓
-Ali
-Ayşe
-Mehmet
-```
-
 Grupta olmayan kişiler bu iletişimin hedefi değildir.
 
-Multicast özellikle **aynı veriyi birden fazla alıcıya verimli şekilde ulaştırmak** gereken durumlarda kullanılabilir.
+Multicast özellikle **aynı veriyi birden fazla alıcıya verimli şekilde ulaştırmak** için gereken durumlarda kullanılabilir.
 
 ---
 
-# Üçünü Karşılaştırma
+# Karşılaştırma
 
 En kolay şekilde şöyle düşünebiliriz:
 
 ```text
 Unicast
-→ Bir kişiye gönder
+→ Bir kişiye gönderir.
 
 Broadcast
-→ Herkese gönder
+→ Herkese gönderir.
 
 Multicast
-→ Belirli bir gruba gönder
+→ Belirli bir gruba gönderir.
 ```
 
 | İletişim | Gönderim |
