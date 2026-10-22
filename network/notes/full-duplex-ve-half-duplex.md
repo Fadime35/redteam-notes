@@ -1,244 +1,125 @@
-\# Full-Duplex ve Half-Duplex
-
-
+# Tam Çift Yönlü ve Yarı Çift Yönlü İletişim
 
 Ağ iletişiminde iki cihazın birbirleriyle nasıl veri alışverişi yaptığı önemlidir.
 
-
-
 Buradaki temel soru şudur:
 
+> **İki cihaz aynı anda birbirine veri gönderebilir mi, yoksa sırayla mı göndermeleri gerekir?**
 
-
-> \*\*İki cihaz aynı anda birbirine veri gönderebilir mi, yoksa sırayla mı göndermeleri gerekir?\*\*
-
-
-
-Bu durumu açıklamak için \*\*duplex\*\* kavramı kullanılır.
-
-
+Bu durumu açıklamak için **duplex** kavramı kullanılır.
 
 İki temel iletişim şekli vardır:
 
+- **Full-Duplex**
+- **Half-Duplex**
 
+---
 
-\- \*\*Full-Duplex\*\*
+## Full-Duplex
 
-\- \*\*Half-Duplex\*\*
-
-
-
-\---
-
-
-
-\## Full-Duplex
-
-
-
-\*\*Full-Duplex\*\*, iki cihazın aynı anda hem veri gönderip hem de veri alabilmesi demektir.
-
-
+**Full-Duplex**, iki cihazın aynı anda hem veri gönderip hem de veri alabilmesi demektir.
 
 Örneğin telefon görüşmesini düşünelim. Sen konuşurken karşı taraf da aynı anda konuşabilir ve ikiniz birbirinizi duyabilirsiniz.
 
-
-
 Ağ iletişiminde de benzer şekilde iki cihaz aynı anda veri alışverişi yapabilir.
 
-
-
 ```text
-
 PC A  ⇄  PC B
-
 ```
 
-
-
-Buradaki çift yönlü ok, iletişimin iki yönde \*\*aynı anda\*\* gerçekleşebildiğini gösterir.
-
-
+Buradaki çift yönlü ok, iletişimin iki yönde **aynı anda** gerçekleşebildiğini gösterir.
 
 Örneğin:
 
-
-
 ```text
-
 PC A → Veri gönderiyor
-
 PC B → Aynı anda veri gönderiyor
-
 ```
-
-
 
 İki tarafın veri göndermesi için sırayla beklemesi gerekmez.
 
+Modern **switched Ethernet** bağlantıları genellikle Full-Duplex çalışır.
 
+---
 
-Modern \*\*switched Ethernet\*\* bağlantıları genellikle Full-Duplex çalışır.
+## Half-Duplex
 
-
-
-\---
-
-
-
-\## Half-Duplex
-
-
-
-\*\*Half-Duplex\*\*, iki cihazın her iki yönde de iletişim kurabilmesi ancak \*\*aynı anda yalnızca bir yönde\*\* veri gönderebilmesi demektir.
-
-
+**Half-Duplex**, iki cihazın her iki yönde de iletişim kurabilmesi ancak **aynı anda yalnızca bir yönde** veri gönderebilmesi demektir.
 
 Yani iki cihaz iletişim kurabilir fakat aynı anda konuşamaz.
 
-
-
 ```text
-
 PC A  →  PC B
-
 ```
-
-
 
 PC A gönderirken PC B aynı anda gönderemez.
 
-
-
 Daha sonra yön değişir:
 
-
-
 ```text
-
 PC A  ←  PC B
-
 ```
-
-
 
 Bu nedenle cihazların iletişimi sırayla gerçekleşir.
 
-
-
 Bunu telsiz kullanımına benzetebiliriz.
-
-
 
 Bir kişi konuşurken diğer kişi bekler. Konuşmasını bitirdiğinde diğer kişi konuşabilir.
 
+---
 
-
-\---
-
-
-
-\## Aralarındaki Temel Fark
-
-
+## Aralarındaki Temel Fark
 
 ```text
-
 Full-Duplex
 
-
-
 A → B
-
 A ← B
-
-
 
 İki yön aynı anda kullanılabilir.
 
 
-
-
-
 Half-Duplex
 
-
-
 A → B
-
 A ← B
 
-
-
 İki yön kullanılabilir ancak aynı anda kullanılamaz.
-
 ```
-
-
 
 En basit şekilde:
 
+> **Full-Duplex = Aynı anda konuşabiliriz.**
 
+> **Half-Duplex = Konuşabiliriz ama sırayla konuşuruz.**
 
-> \*\*Full-Duplex = Aynı anda konuşabiliriz.\*\*
+---
 
-
-
-> \*\*Half-Duplex = Konuşabiliriz ama sırayla konuşuruz.\*\*
-
-
-
-\---
-
-
-
-\## Neden Önemli?
-
-
+## Neden Önemli?
 
 Duplex türü ağın iletişim şeklini ve performansını etkiler.
 
-
-
 Full-Duplex bağlantıda cihazlar aynı anda veri gönderip alabildiği için iletişim daha verimli olabilir.
-
-
 
 Half-Duplex bağlantıda ise cihazların sırayla iletişim kurması gerektiğinden aynı anda iki yönlü veri aktarımı yapılamaz.
 
-
-
 Özellikle ağ sorunlarını incelerken duplex ayarlarının doğru olması önemlidir. Bir bağlantının beklenenden yavaş çalışması veya iletişim sırasında sorunlar yaşanması durumunda hız ve duplex ayarları kontrol edilebilir.
-
-
 
 Bu nedenle ağ iletişimini incelerken sadece:
 
-
-
 ```text
-
 Bağlantı var mı?
-
 ```
-
-
 
 diye değil,
 
-
-
 ```text
-
 Bağlantı nasıl çalışıyor?
-
 İki yön aynı anda kullanılabiliyor mu?
-
 ```
 
-
-
 diye de düşünmek gerekir.
+
 
 
 
