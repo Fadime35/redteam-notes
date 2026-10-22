@@ -273,23 +273,6 @@ Detailed technical notes, command references, lab walkthroughs, packet captures,
 General Linux administration and command-line topics will be documented in the Linux section of this repository to avoid unnecessary duplication.
 
 
-
-\## References
-
-
-
-\- \[RFC Editor](https://www.rfc-editor.org/)
-
-\- \[Wireshark Documentation](https://www.wireshark.org/docs/)
-
-\- \[Nmap Reference Guide](https://nmap.org/book/man.html)
-
-\- \[curl Documentation](https://curl.se/docs/)
-
-\- \[IANA Service Name and Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
-
-
-
 \## Ethical Use
 
 
